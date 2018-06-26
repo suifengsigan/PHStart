@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace CSharpEntry
@@ -19,8 +20,37 @@ namespace CSharpEntry
             try
             {
                 var loader = new ManagedLoader();
-                var assembly = loader.Load("EactBomUI.dll");
-                EactBom.Unload.Main();
+                var assembly = loader.Load(arg);
+                string outArg = string.Empty;
+                int result = 0;
+                loader.Run("Main", args, out outArg, out result);
+                #region oldCode
+                //var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(u => u.Location==Path.Combine(AppDomain.CurrentDomain.BaseDirectory,arg));
+                //Type[] types = assemblies.FirstOrDefault().GetTypes();
+                //foreach (Type type in types)
+                //{
+                //    foreach (MethodInfo info in type.GetMethods(BindingFlags.Public | BindingFlags.Static))
+                //    {
+                //        if (info.Name == "Main")
+                //        {
+                //            ParameterInfo[] parameters = info.GetParameters();
+                //            if (parameters.Length == 1)
+                //            {
+                //                Type parameterType = parameters[0].ParameterType;
+                //                Type returnType = info.ReturnType;
+                //                if ((parameterType.IsArray && (parameterType.GetElementType() == typeof(string))) && (returnType.IsArray && (returnType.GetElementType() == typeof(string))))
+                //                {
+                //                    var result = (string[])info.Invoke(null, new object[] { args });
+                //                }
+                //            }
+                //            else if(parameters.Length == 0)
+                //            {
+                //                var result = (string[])info.Invoke(null, null);
+                //            }
+                //        }
+                //    }
+                //}
+                #endregion
             }
             catch (Exception ex)
             {
