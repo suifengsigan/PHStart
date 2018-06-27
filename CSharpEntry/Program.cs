@@ -74,11 +74,11 @@ namespace CSharpEntry
                 var info = new System.IO.DirectoryInfo(dir);
                 var UGII_BASE_DIR = info.Parent.FullName;
 
-                var UGMANAGEDPATH = Path.Combine(dir, "managed", "ManagedLoader.dll");
+                var UGMANAGEDPATH = Path.Combine(dir, "managed", assemblyName.Name, ".dll");
 
                 if (!File.Exists(UGMANAGEDPATH))
                 {
-                    UGMANAGEDPATH = Path.Combine(UGII_BASE_DIR, "NXBIN", "managed", "ManagedLoader.dll");
+                    UGMANAGEDPATH = Path.Combine(UGII_BASE_DIR, "NXBIN", "managed", assemblyName.Name, ".dll");
                 }
 
                 if (File.Exists(UGMANAGEDPATH))

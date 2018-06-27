@@ -17,7 +17,14 @@ File description: Interoperability example : Uses Open C API and NX Open C++ API
 #include <fstream>  
 #include <iostream>  
 #include <windows.h>  
+#ifdef _WIN64
+#pragma comment(lib,"CSharpStartX64.lib")
+#else
+#pragma comment(lib,"CSharpStart.lib")
+#endif
 using namespace std;
+
+
 
 extern "C" __declspec(dllimport) char* Show(char* actionName);
 
