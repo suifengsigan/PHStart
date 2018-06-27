@@ -15,6 +15,12 @@ namespace CSharpEntry
         [STAThread]
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            Show(args);
+        }
+
+        static void Show(string[] args)
+        {
             var arg = args.Count() > 0 ? args.First() : string.Empty;
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             try
@@ -56,7 +62,28 @@ namespace CSharpEntry
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
 
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            string fileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+            var dir = System.IO.Path.GetDirectoryName(fileName);
+            var info = new System.IO.DirectoryInfo(dir);
+            var UGII_BASE_DIR = info.Parent.FullName;
+
+            var UGMANAGEDPATH = Path.Combine(dir, "managed", "ManagedLoader.dll");
+
+            if (!File.Exists(UGMANAGEDPATH))
+            {
+                UGMANAGEDPATH = Path.Combine(UGII_BASE_DIR, "NXBIN", "managed", "ManagedLoader.dll");
+            }
+
+            if (File.Exists(UGMANAGEDPATH))
+            {
+                return Assembly.LoadFile(UGMANAGEDPATH);
+            }
+
+            return null;
         }
     }
 }
