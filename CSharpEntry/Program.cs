@@ -66,23 +66,26 @@ namespace CSharpEntry
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
-            string fileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-            var dir = System.IO.Path.GetDirectoryName(fileName);
-            var info = new System.IO.DirectoryInfo(dir);
-            var UGII_BASE_DIR = info.Parent.FullName;
-
-            var UGMANAGEDPATH = Path.Combine(dir, "managed", "ManagedLoader.dll");
-
-            if (!File.Exists(UGMANAGEDPATH))
+            var assemblyName = new AssemblyName(args.Name);
+            if (assemblyName.Name == "ManagedLoader")
             {
-                UGMANAGEDPATH = Path.Combine(UGII_BASE_DIR, "NXBIN", "managed", "ManagedLoader.dll");
-            }
+                string fileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                var dir = System.IO.Path.GetDirectoryName(fileName);
+                var info = new System.IO.DirectoryInfo(dir);
+                var UGII_BASE_DIR = info.Parent.FullName;
 
-            if (File.Exists(UGMANAGEDPATH))
-            {
-                return Assembly.LoadFile(UGMANAGEDPATH);
-            }
+                var UGMANAGEDPATH = Path.Combine(dir, "managed", "ManagedLoader.dll");
 
+                if (!File.Exists(UGMANAGEDPATH))
+                {
+                    UGMANAGEDPATH = Path.Combine(UGII_BASE_DIR, "NXBIN", "managed", "ManagedLoader.dll");
+                }
+
+                if (File.Exists(UGMANAGEDPATH))
+                {
+                    return Assembly.LoadFile(UGMANAGEDPATH);
+                }
+            }
             return null;
         }
     }
