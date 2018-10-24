@@ -29,7 +29,7 @@ namespace CSharpEntry
                 var assembly = loader.Load(arg);
                 string outArg = string.Empty;
                 int result = 0;
-                loader.Run("Main", args, out outArg, out result);
+                loader.Run(args.Count() > 1 ? args[1] : "Main", args, out outArg, out result);
                 #region oldCode
                 //var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(u => u.Location==Path.Combine(AppDomain.CurrentDomain.BaseDirectory,arg));
                 //Type[] types = assemblies.FirstOrDefault().GetTypes();
@@ -79,6 +79,17 @@ namespace CSharpEntry
                 {
                     UGMANAGEDPATH = Path.Combine(UGII_BASE_DIR, "NXBIN", "managed", assemblyName.Name + ".dll");
                 }
+
+                if (!File.Exists(UGMANAGEDPATH))
+                {
+                    UGMANAGEDPATH = Path.Combine(System.Environment.GetEnvironmentVariable("UGII_BASE_DIR") ?? string.Empty,"UGII", "managed", assemblyName.Name + ".dll");
+                }
+
+                if (!File.Exists(UGMANAGEDPATH))
+                {
+                    UGMANAGEDPATH = Path.Combine(System.Environment.GetEnvironmentVariable("UGII_BASE_DIR") ?? string.Empty, "NXBIN", "managed", assemblyName.Name + ".dll");
+                }
+
                 if (File.Exists(UGMANAGEDPATH))
                 {
                     return Assembly.LoadFile(UGMANAGEDPATH);
