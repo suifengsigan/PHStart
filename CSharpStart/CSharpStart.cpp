@@ -31,3 +31,27 @@ char* Show(char* actionName)
 	return result;
 }
 
+char* GetSYSSHAREVar(char* key)
+{
+	if (key == "IV")
+	{
+		return "1234";
+	}
+	if (key == "KEY")
+	{
+		return "1234567sdfsfsfdljlsfdkja^9999999999999";
+	}
+	if (key == "email")
+	{
+		return "577104206@qq.com";
+	}
+	if (key == "uuid")
+	{
+		return "91420100781995775H-20181030";
+	}
+	if (key == "sn")
+	{
+		return "c090381767efea67545d70e6f5cf12b2";
+	}
+	return "";
+}
