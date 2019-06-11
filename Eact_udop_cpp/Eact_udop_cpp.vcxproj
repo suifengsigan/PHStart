@@ -145,7 +145,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssemblyDynamicLoader.h" />
     <ClInclude Include="CSharpStart.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
