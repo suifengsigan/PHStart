@@ -14,7 +14,8 @@ using namespace System::Collections;
 
 char* EACT_COMMAND(int type, char* command)
 {
-	return "";
+	String ^ commandStr = Marshal::PtrToStringAnsi((IntPtr)command);
+	return (char*)Marshal::StringToHGlobalAnsi(EactCommand::Entry::ExcuteCommand(type, commandStr)).ToPointer();
 }
 
 char* Show(char* actionName)
