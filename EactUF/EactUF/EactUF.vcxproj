@@ -73,24 +73,24 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>I:\UG\NX 8.5.0.23-32\UGOPEN;$(IncludePath)</IncludePath>
     <LibraryPath>I:\UG\NX 8.5.0.23-32\UGOPEN;$(LibraryPath)</LibraryPath>
-    <OutDir>G:\PHEactProject\PHEact\Application</OutDir>
+    <OutDir>F:\PHEactProject\PHEact\Application</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(UGII_BASE_DIR)/ugopen;$(IncludePath)</IncludePath>
     <LibraryPath>$(UGII_BASE_DIR)/ugopen;$(LibraryPath)</LibraryPath>
-    <OutDir>G:\PHEactProject\PHEact\Application</OutDir>
+    <OutDir>F:\PHEactProject\PHEact\Application</OutDir>
     <TargetName>$(ProjectName)X64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>G:\PHEactProject\PHEact\Application</OutDir>
+    <OutDir>F:\PHEactProject\PHEact\Application</OutDir>
     <IncludePath>I:\UG\NX 8.5.0.23-32\UGOPEN;$(IncludePath)</IncludePath>
     <LibraryPath>I:\UG\NX 8.5.0.23-32\UGOPEN;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>G:\PHEactProject\PHEact\Application</OutDir>
+    <OutDir>F:\PHEactProject\PHEact\Application</OutDir>
     <TargetName>$(ProjectName)X64</TargetName>
     <IncludePath>$(UGII_BASE_DIR)/ugopen;$(IncludePath)</IncludePath>
     <LibraryPath>$(UGII_BASE_DIR)/ugopen;$(LibraryPath)</LibraryPath>
