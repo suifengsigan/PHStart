@@ -28,7 +28,7 @@ using namespace std;
 
 extern "C" __declspec(dllimport) char* Show(char* actionName);
 
-#define EActActionName "EActPH"
+#define EActActionName "EACT_UG_Start"
 
 #define UF_CALL(X) (report_error( __FILE__, __LINE__, #X, (X)))
 static int report_error(char *file, int line, char *call, int irc)
@@ -61,7 +61,7 @@ static int report_error(char *file, int line, char *call, int irc)
 	return(irc);
 }
 
-static UF_MB_cb_status_t EActPH(
+static UF_MB_cb_status_t EACT_UG_Start(
 	UF_MB_widget_t             widget,
 	UF_MB_data_t               client_data,
 	UF_MB_activated_button_p_t call_button)
@@ -85,7 +85,7 @@ static UF_MB_cb_status_t EActPH(
 	return UF_MB_CB_OVERRIDE_STANDARD;
 }
 
-static UF_MB_action_t actionTable[] = { { EActActionName, EActPH, NULL }, { NULL, NULL, NULL } };
+static UF_MB_action_t actionTable[] = { { EActActionName, EACT_UG_Start, NULL }, { NULL, NULL, NULL } };
 
 
 extern "C" __declspec(dllexport) int ufusr_ask_unload()
