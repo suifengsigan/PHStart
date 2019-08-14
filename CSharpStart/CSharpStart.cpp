@@ -22,6 +22,10 @@ char* Show(char* actionName)
 		//获取上级目录
 		path = path->Substring(0, path->LastIndexOf("\\"));
 		path = Path::Combine(path,"Application");
+		if (File::Exists(actionNameStr))
+		{
+			path = Path::GetDirectoryName(actionNameStr);
+		}
 		ProxyObject::ExecuteMothod(actionNameStr, path);
 	}
 	catch (Exception^ ex)
