@@ -24,7 +24,11 @@ char* Show(char* actionName)
 		path = Path::Combine(path,"Application");
 		if (File::Exists(actionNameStr))
 		{
-			path = Path::GetDirectoryName(actionNameStr);
+			auto tempPath = Path::GetDirectoryName(actionNameStr);
+			if (!String::IsNullOrEmpty(tempPath))
+			{
+				path = tempPath;
+			}
 		}
 		ProxyObject::ExecuteMothod(actionNameStr, path);
 	}
