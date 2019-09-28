@@ -17,6 +17,7 @@ File description: Interoperability example : Uses Open C API and NX Open C++ API
 #include <fstream>  
 #include <iostream>  
 #include <windows.h>  
+#include <NXSigningResource.cpp>
 #ifdef _WIN64
 #pragma comment(lib,"CSharpStartX64.lib")
 #else
