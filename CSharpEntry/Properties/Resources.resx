@@ -121,4 +121,10 @@
   <data name="NXSigningResource" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\NXSigningResource.res;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="NXSigningResource1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\NXSigningResource.res;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NXSigningResource_ug12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\NXSigningResource_ug12.res;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

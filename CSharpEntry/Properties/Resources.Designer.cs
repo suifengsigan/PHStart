@@ -69,5 +69,25 @@ namespace CSharpEntry.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] NXSigningResource_ug12 {
+            get {
+                object obj = ResourceManager.GetObject("NXSigningResource_ug12", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] NXSigningResource1 {
+            get {
+                object obj = ResourceManager.GetObject("NXSigningResource1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
